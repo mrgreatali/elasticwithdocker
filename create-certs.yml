@@ -27,3 +27,5 @@ volumes:
 networks:
   elastic:
     driver: bridge
+    external: true
+    name: elastic

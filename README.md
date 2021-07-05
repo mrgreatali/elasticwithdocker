@@ -3,11 +3,20 @@
 ##Installation
 Run following commands to execute elastic stack on server
 ```bash
+
+sysctl -w vm.max_map_count=262144
+
+sysctl --system
+
+systemctl restart docker
+
 docker-compose -f create-certs.yml run --rm create_certs
+
+docker network crate elastic --attachable
 
 docker-compose -f docker-compose-secure-single-instance.yml up -d
 
-docker exec es01 /bin/bash -c "bin/elasticsearch-setup-passwords \
-auto --batch --url http://es01:9200"
+docker exec esmaster /bin/bash -c "bin/elasticsearch-setup-passwords \
+auto --batch --url http://esmaster:9200"
 
 ```
