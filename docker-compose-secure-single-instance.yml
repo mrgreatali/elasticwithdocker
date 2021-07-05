@@ -85,6 +85,8 @@ volumes:
   certs:
     driver: local
 
-networks: 
+networks:
   elastic:
-    driver: bridge    
+    driver: bridge
+    external: true
+    name: elastic
