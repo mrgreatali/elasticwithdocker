@@ -10,9 +10,9 @@ sysctl --system
 
 systemctl restart docker
 
-docker-compose -f create-certs.yml run --rm create_certs
+docker network create elastic --attachable
 
-docker network crate elastic --attachable
+docker-compose -f create-certs.yml run --rm create_certs
 
 docker-compose -f docker-compose-secure-single-instance.yml up -d
 
